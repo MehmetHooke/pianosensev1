@@ -5,8 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 
 class Screen3Fragment : Fragment() {
@@ -24,10 +23,13 @@ class Screen3Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_screen3, container, false)
-        val buttonNext = view.findViewById<ImageView>(R.id.buttonNext)
+
+        val buttonNext = view.findViewById<ImageButton>(R.id.buttonNext)
         buttonNext.setOnClickListener {
-            (activity as? OnNextClickListener)?.onNextClick()
+            // `MainActivity` üzerindeki `onNextClick()` metodunu tetikler
+            listener?.onNextClick()
         }
+
         return view
     }
 

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/fragmentSearchPage"
-        android:icon="@drawable/ic_search"
-        android:title="Search" />
-    <item
-        android:id="@+id/playFragment"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_play"
-        android:title="Play" />
+    android:title="Home" />
+
     <item
-        android:id="@+id/savedFragment"
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_search"
+    android:title="Search" />
+
+    <item
+        android:id="@+id/navigation_saved"
         android:icon="@drawable/ic_saved"
-        android:title="Saved" />
+    android:title="Saved" />
+
     <item
-        android:id="@+id/settingsFragment"
+        android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
-        android:title="Settings" />
+    android:title="Settings" />
+
 </menu>

@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
-class SettingsFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class SettingsFragment : Fragment() {
 
         // TextView öğesine erişip metni ayarlayın
         val pageTitle = view.findViewById<TextView>(R.id.pageTitle)
-        pageTitle?.text = "Settings Page"
+        pageTitle?.text = "Home Page"
     }
 }
 

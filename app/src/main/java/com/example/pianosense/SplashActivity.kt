@@ -7,9 +7,7 @@ import android.os.Looper
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.pianosense.MainActivity
-import com.example.pianosense.R
-
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashActivity : AppCompatActivity() {
 
@@ -17,19 +15,23 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        val logoImageView = findViewById<ImageView>(R.id.logoImageView)
-
-
-        // Glide kullanarak GIF gösterimi
+        val logoImageView: ImageView = findViewById(R.id.logoImageView)
         Glide.with(this).asGif().load(R.drawable.sense).into(logoImageView)
 
+        FirebaseAuth.getInstance().signOut()
 
-
-        // 3 saniye bekleme ve MainActivity'ye geçiş
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            val currentUser = FirebaseAuth.getInstance().currentUser
+            if (currentUser != null) {
+                // Giriş yapılmışsa direkt ana sayfaya geç
+                startActivity(Intent(this, MainActivity::class.java).apply {
+                    putExtra("SKIP_ONBOARDING", true)
+                })
+            } else {
+                // Giriş yapılmamışsa onboarding ekranına geç
+                startActivity(Intent(this, MainActivity::class.java))
+            }
             finish()
-        }, 6000) // 3000 milisaniye = 3 saniye
-
+        }, 3000)
     }
 }
