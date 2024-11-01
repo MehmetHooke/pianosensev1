@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentSearchPage">
+
+    <!-- FragmentSearchPage -->
+    <fragment
+        android:id="@+id/fragmentSearchPage"
+        android:name="com.example.pianosense.FragmentSearchPage"
+        android:label="Search Page">
+        <action
+            android:id="@+id/action_fragmentSearchPage_to_playFragment"
+            app:destination="@id/playFragment" />
+    </fragment>
+
+    <!-- PlayFragment -->
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.example.pianosense.PlayFragment"
+        android:label="Play Page">
+        <action
+            android:id="@+id/action_playFragment_to_savedFragment"
+            app:destination="@id/savedFragment" />
+    </fragment>
+
+    <!-- SavedFragment -->
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.example.pianosense.SavedFragment"
+        android:label="Saved Page">
+        <action
+            android:id="@+id/action_savedFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <!-- SettingsFragment -->
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.pianosense.SettingsFragment"
+        android:label="Settings Page" />
+</navigation>
